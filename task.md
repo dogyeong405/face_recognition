@@ -24,5 +24,5 @@
 
 - [/] **Github 및 문서화**
     - [x] `PROJECT_PLAN.md` 및 `GITHUB_ISSUES.md` 업데이트
-    - [ ] GitHub Repository 생성 및 초기 커밋
+    - [x] GitHub Repository 생성 및 초기 커밋
     - [ ] `README.md` 작성 (실행 가이드 포함)
