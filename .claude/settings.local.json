@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh issue list:*)",
+      "Bash(powershell -Command \"Get-Process python* | Stop-Process -Force\")",
+      "Bash(python:*)"
+    ]
+  }
+}
