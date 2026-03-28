@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HandShooter Game</title>
+    <!-- MediaPipe Hands -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+    
+    <!-- 자체 수학적 알고리즘으로 대체됨 (Teachable Machine 제거) -->
+
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+    <!-- 시작 화면 상단 모달 -->
+    <div id="start-screen">
+        <h1>HandShooter</h1>
+        <p>도경이가 만든 개쩌는 과일 맞추기 게임</p>
+        <div class="input-group">
+            <input type="text" id="nickname-input" placeholder="닉네임을 입력하세요" autocomplete="off" />
+            <button id="start-button">게임 시작</button>
+        </div>
+    </div>
+
+    <!-- 기존 본 게임 컨테이너 -->
+    <div id="game-container" class="hidden">
+        <div id="ui-header">
+            <div id="score-display">Score: 0</div>
+            <div id="nickname-display">Player</div>
+            <div id="ammo-display">Ammo: 10 / 10</div>
+        </div>
+        
+        <div id="canvas-container">
+            <video id="webcam" autoplay playsinline></video>
+            <canvas id="output_canvas"></canvas>
+            <div id="reload-warning" class="hidden">Reload Needed!<br/>("총 장전" 제스처를 취하세요!)</div>
+        </div>
+    </div>
+    
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>

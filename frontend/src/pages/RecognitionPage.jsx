@@ -95,7 +95,7 @@ function RecognitionPage() {
             ctx.lineWidth = 2;
             ctx.strokeRect(x1, y1, x2 - x1, y2 - y1);
 
-            // 이름 라벨 배경
+            // 상단 라벨 (이름)
             const label = isKnown
                 ? `${face.name} (${(face.similarity * 100).toFixed(0)}%)`
                 : 'Unknown';
@@ -105,9 +105,19 @@ function RecognitionPage() {
             ctx.fillStyle = isKnown ? 'rgba(0, 255, 136, 0.8)' : 'rgba(255, 68, 68, 0.8)';
             ctx.fillRect(x1, y1 - 24, textWidth + 12, 24);
 
-            // 이름 텍스트
             ctx.fillStyle = isKnown ? '#000' : '#fff';
             ctx.fillText(label, x1 + 6, y1 - 7);
+
+            // 하단 라벨 (나이/성별)
+            const infoLabel = `${face.gender} / ${face.age}세`;
+            ctx.font = '12px Segoe UI';
+            const infoWidth = ctx.measureText(infoLabel).width;
+
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.6)';
+            ctx.fillRect(x1, y2, infoWidth + 12, 22);
+
+            ctx.fillStyle = '#fff';
+            ctx.fillText(infoLabel, x1 + 6, y2 + 15);
         });
     }, [faces]);
 
@@ -152,10 +162,16 @@ function RecognitionPage() {
                         <h3>감지된 얼굴</h3>
                         {faces.map((face, i) => (
                             <div key={i} className={`face-result ${face.name !== 'Unknown' ? 'known' : 'unknown'}`}>
-                                <span className="face-name">{face.name}</span>
-                                <span className="face-similarity">
-                                    {(face.similarity * 100).toFixed(1)}%
-                                </span>
+                                <div className="face-main-info">
+                                    <span className="face-name">{face.name}</span>
+                                    <span className="face-similarity">
+                                        {(face.similarity * 100).toFixed(1)}%
+                                    </span>
+                                </div>
+                                <div className="face-detail-info">
+                                    <span>{face.gender}</span>
+                                    <span>{face.age}세</span>
+                                </div>
                             </div>
                         ))}
                     </div>

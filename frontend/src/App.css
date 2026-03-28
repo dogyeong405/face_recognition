@@ -234,8 +234,8 @@ body {
 
 .face-result {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  gap: 4px;
   padding: 10px 16px;
   border-radius: 8px;
   margin-bottom: 6px;
@@ -251,6 +251,12 @@ body {
   border: 1px solid rgba(255, 68, 68, 0.2);
 }
 
+.face-main-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .face-name {
   font-weight: 600;
 }
@@ -258,6 +264,13 @@ body {
 .face-similarity {
   color: #888;
   font-size: 0.85rem;
+}
+
+.face-detail-info {
+  display: flex;
+  gap: 12px;
+  font-size: 0.8rem;
+  color: #aaa;
 }
 
 /* ===== Register Page ===== */

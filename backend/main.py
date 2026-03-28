@@ -114,6 +114,8 @@ async def recognize_face(
         results.append({
             "name": match["name"],
             "similarity": round(match["similarity"], 4),
+            "gender": "남성" if face.gender == 1 else "여성",
+            "age": int(face.age),
             "bbox": {
                 "x1": bbox[0],
                 "y1": bbox[1],

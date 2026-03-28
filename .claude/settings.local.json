@@ -3,7 +3,13 @@
     "allow": [
       "Bash(gh issue list:*)",
       "Bash(powershell -Command \"Get-Process python* | Stop-Process -Force\")",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(powershell -Command \"netstat -an | Select-String ''8000'' | Select-String ''LISTENING''\")",
+      "Bash(powershell -Command \"netstat -an | Select-String ''5173'' | Select-String ''LISTENING''\")",
+      "Bash(powershell -Command:*)",
+      "Bash(npm run dev:*)",
+      "Bash(pip install:*)",
+      "Bash(pip show:*)"
     ]
   }
 }
